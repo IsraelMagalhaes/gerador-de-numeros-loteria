@@ -49,47 +49,40 @@ function gerarNumerosUnicos(quantidade, minimo, maximo) {
   return Array.from(numeros).sort((numeroA, numeroB) => numeroA - numeroB);
 }
 
-// Ligação dos elementos usando os IDs.
+// Captura dos elementos.
 const btnGerar = document.getElementById('botao-gerar');
 const selectModalidade = document.getElementById('modalidade');
 const containerResultado = document.getElementById('resultado');
 
-/**
- * Limpa o resultado anterior e exibe os novos números na página.
- * * @param {number[]} numeros Lista de números ordenados para exibir.
- */
+// Trata os eventos da página.
 function exibirResultadosNaTela(numeros) {
-  // Limpa a mensagem padrão ("Os números gerados aparecerão aqui.") ou o resultado anterior
+  // Limpa o resultado anterior
   containerResultado.innerHTML = ''; 
 
-  // Cria e adiciona cada número de forma organizada
+  // Cria um elemento para cada número e exibe na página
   numeros.forEach(numero => {
     const elementoNumero = document.createElement('span');
-    // Formata o número para ter sempre 2 dígitos (ex: 03 em vez de 3)
     elementoNumero.textContent = String(numero).padStart(2, '0'); 
-    elementoNumero.classList.add('numero-sorteado'); // Classe para usar no seu style.css
-    
+    elementoNumero.classList.add('numero-sorteado');
     containerResultado.appendChild(elementoNumero);
   });
 }
 
-// Conecta o clique do botão para gerar os números da modalidade escolhida
 if (btnGerar && selectModalidade && containerResultado) {
   btnGerar.addEventListener('click', () => {
+    // 1. Capturar a modalidade selecionada 
     const modalidadeSelecionada = selectModalidade.value;
-
-    // Se o usuário não selecionar nenhuma modalidade, mostra um aviso
+    
     if (!modalidadeSelecionada) {
-      containerResultado.innerHTML = '<p style="color: red; font-weight: bold;">Por favor, selecione uma modalidade!</p>';
+      alert('Por favor, selecione uma modalidade de loteria!');
       return;
     }
 
-    // Variáveis para guardar as regras do jogo selecionado
+    // Configura as regras de quantidade e intervalo numérico de cada jogo.
     let quantidade = 0;
     let minimo = 1;
     let maximo = 60;
 
-    // Define as regras oficiais de cada jogo (Mega-Sena, Quina e Lotofácil)
     if (modalidadeSelecionada === 'mega-sena') {
       quantidade = 6;
       minimo = 1;
@@ -105,14 +98,13 @@ if (btnGerar && selectModalidade && containerResultado) {
     }
 
     try {
-      // Chama a função de geração de números únicos e ordenados
+      // 2. Executar a função de geração.
       const numerosSorteados = gerarNumerosUnicos(quantidade, minimo, maximo);
       
-      // Exibe os números na tela
+      // Mostra os números gerados diretamente na página
       exibirResultadosNaTela(numerosSorteados);
     } catch (error) {
-      console.error("Erro na geração:", error);
-      containerResultado.innerHTML = '<p style="color: red;">Ocorreu um erro ao gerar os números.</p>';
+      console.error("Erro na execução da geração:", error);
     }
   });
 }
