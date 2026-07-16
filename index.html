@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerador de Números para Loteria</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Gerador de Números para Loteria</h1>
+
+            <p>
+                Escolha uma modalidade e gere números aleatórios para o seu jogo.
+            </p>
+        </header>
+
+        <section>
+            <label for="modalidade">Modalidade da loteria:</label>
+
+            <select id="modalidade" name="modalidade">
+                <option value="">Selecione uma modalidade</option>
+                <option value="mega-sena">Mega-Sena</option>
+                <option value="quina">Quina</option>
+                <option value="lotofacil">Lotofácil</option>
+            </select>
+
+            <button id="botao-gerar" type="button">
+                Gerar números
+            </button>
+        </section>
+
+        <section>
+            <h2>Resultado</h2>
+
+            <div id="resultado">
+                <p>Os números gerados aparecerão aqui.</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/games.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
