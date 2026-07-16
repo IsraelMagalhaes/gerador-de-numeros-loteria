@@ -1,3 +1,5 @@
+// Lógica principal da aplicação
+
 /**
  * Retorna um número inteiro aleatório dentro do intervalo informado.
  *
@@ -45,29 +47,4 @@ function gerarNumerosUnicos(quantidade, minimo, maximo) {
   }
 
   return Array.from(numeros).sort((numeroA, numeroB) => numeroA - numeroB);
-}
-
-/**
- * Gera um jogo de acordo com a modalidade informada.
- *
- * @param {string} modalidade Identificador da modalidade.
- * @returns {{ nome: string, numeros: number[] }}
- */
-function gerarJogo(modalidade) {
-  const configuracao = LOTERIAS[modalidade];
-
-  if (!configuracao) {
-    throw new Error("Modalidade de loteria inválida.");
-  }
-
-  const numeros = gerarNumerosUnicos(
-    configuracao.quantidade,
-    configuracao.numeroMinimo,
-    configuracao.numeroMaximo
-  );
-
-  return {
-    nome: configuracao.nome,
-    numeros,
-  };
 }

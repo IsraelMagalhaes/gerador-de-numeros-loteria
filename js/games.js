@@ -1,4 +1,3 @@
-
 // Regras das modalidades de loteria
 
 const LOTERIAS = {
@@ -23,4 +22,3 @@ const LOTERIAS = {
     numeroMaximo: 25,
   },
 };
-
