@@ -69,4 +69,21 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+}
+
+.numero-sorteado {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #e9ecef;
+    color: #2c3e50;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    text-align: center;
+    min-width: 40px;
 }
