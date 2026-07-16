@@ -1,7 +1,6 @@
-<<<<<<< HEAD
+
 // Regras das modalidades de loteria
-=======
-// Regras das modalidades de loteria
+
 const LOTERIAS = {
   megaSena: {
     nome: "Mega-Sena",
@@ -24,4 +23,4 @@ const LOTERIAS = {
     numeroMaximo: 25,
   },
 };
->>>>>>> 51d6a943a598237971661cd3178509875d91ef4b
+
