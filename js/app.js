@@ -12,7 +12,7 @@ function gerarNumeroAleatorio(minimo, maximo) {
 }
 
 /**
- * Gera números aleatórios sem repetição e em ordem crescente.
+ * Gera números aleatórios sem repetição e em ordem crescent.
  *
  * @param {number} quantidade Quantidade de números desejada.
  * @param {number} minimo Menor número permitido.
@@ -69,6 +69,9 @@ function exibirResultadosNaTela(numeros) {
 }
 
 if (btnGerar && selectModalidade && containerResultado) {
+  // Captura o container principal para aplicar o efeito visual das classes de tema
+  const mainContainer = document.querySelector('main');
+
   btnGerar.addEventListener('click', () => {
     // 1. Capturar a modalidade selecionada 
     const modalidadeSelecionada = selectModalidade.value;
@@ -77,6 +80,10 @@ if (btnGerar && selectModalidade && containerResultado) {
       alert('Por favor, selecione uma modalidade de loteria!');
       return;
     }
+
+    // Altera a classe do main para disparar os estilos temáticos do CSS
+    mainContainer.className = ''; 
+    mainContainer.classList.add(`tema-${modalidadeSelecionada}`);
 
     // Configura as regras de quantidade e intervalo numérico de cada jogo.
     let quantidade = 0;
